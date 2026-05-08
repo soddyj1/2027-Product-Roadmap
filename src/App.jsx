@@ -1,19 +1,19 @@
 import { useState } from "react";
 
-const MISSION = "Our mission is simple — make the business fall in love with Salesforce. Not as a system they log into, but as the enabler that surfaces the right work, removes the admin, and lets every team focus on what actually matters.";
+const MISSION = "Our mission is simple - make the business fall in love with Salesforce. Not as a system they log into, but as the enabler that surfaces the right work, removes the admin, and lets every team focus on what actually matters.";
 
 const EPICS = [
-  { key:"SS-28", name:"Service Desk", half:"H1", quarter:"Q1-Q2", outcome:"RETAIN DEALERS", tagline:"Everything Zendesk promises, built natively in Salesforce", stories:20, okrs:["O1","O2"], teams:["CS"], highlights:["Refined 6-stage case model","SLAs with business hours","Pending & On-Hold automation","Child case model","CSAT surveys","Contact forms","Slack alerts","Email template library"] },
+  { key:"SS-28", name:"Service Desk", half:"H1", quarter:"Q1-Q2", outcome:"RETAIN DEALERS", tagline:"Everything Zendesk promises, built natively in Salesforce", stories:20, okrs:["O1","O2"], teams:["CS"], highlights:["Refined 6-stage case model","SLAs with business hours","Pending and On-Hold automation","Child case model","CSAT surveys","Contact forms","Slack alerts","Email template library"] },
   { key:"SS-83", name:"Onboarding Revamp", half:"H1", quarter:"Q1-Q2", outcome:"RETAIN DEALERS", tagline:"Every dealer live within 10 business days, fully tracked", stories:6, okrs:["O1"], teams:["Onboarding"], highlights:["8 clear case stages","Auto-creation on Closed Won","Reactivating dealer path","SLA enforcement","Manager dashboard","Go-live checklist"] },
-  { key:"SS-84", name:"Account Lifecycle & Pipeline", half:"H1", quarter:"Q1-Q2", outcome:"GROW REVENUE", tagline:"Qualifying → Onboarding → Live → Lapsed → Reactivating — automated", stories:11, okrs:["O1","O2"], teams:["AM","KAM","TSNB"], highlights:["10-stage lifestage path","Daily auto-progression Flow","Lifestage Duration (Months) formula field","Winback Lead auto-creation","Lapse detection","Team collision prevention","Original Contract Start Date preserved"] },
-  { key:"SS-85", name:"Opportunity Management", half:"H1", quarter:"Q1-Q2", outcome:"GROW REVENUE", tagline:"If a commercial event is happening, it should look like a deal", stories:16, okrs:["O1"], teams:["Sales","AM"], highlights:["Standard Sales stage model","Cancellation save pipeline","Suspension recovery pipeline","GSOU free-trial conversion","Overposting upgrade pipeline","Collaborative forecasting","KYC/Verif automation"] },
+  { key:"SS-84", name:"Account Lifecycle and Pipeline", half:"H1", quarter:"Q1-Q2", outcome:"GROW REVENUE", tagline:"Qualifying to Onboarding to Live to Lapsed to Reactivating - automated", stories:11, okrs:["O1","O2"], teams:["AM","KAM","TSNB"], highlights:["10-stage lifestage path","Daily auto-progression Flow","Lifestage Duration (Months) formula field","Winback Lead auto-creation","Lapse detection","Team collision prevention","Original Contract Start Date preserved"] },
+  { key:"SS-85", name:"Opportunity Management", half:"H1", quarter:"Q1-Q2", outcome:"GROW REVENUE", tagline:"If a commercial event is happening, it should look like a deal", stories:16, okrs:["O1"], teams:["Sales","AM"], highlights:["Standard Sales stage model","Cancellation save pipeline","Suspension recovery pipeline","GSOU free-trial conversion","Overposting upgrade pipeline","Collaborative forecasting","KYC and Verif automation"] },
   { key:"SS-181", name:"Lead Management", half:"H1", quarter:"Q2", outcome:"GROW REVENUE", tagline:"No lead sits unworked. No rep wastes time on the wrong dealer.", stories:8, okrs:["O1"], teams:["TSNB"], highlights:["8 lead stages","MC engagement on record","Inbound 2-hour SLA","Lead assignment rules","Winback Lead routing","MC to Lead sync","Lead Action Today view"] },
-  { key:"SS-182", name:"Sales Engagement", half:"H2", quarter:"Q3", outcome:"GROW REVENUE", tagline:"Cadences as a governed tool — not a free-for-all", stories:3, okrs:["O1"], teams:["Sales","AM"], highlights:["Cadence governance model","SF team creates only","Team leads request via Jira","Quarterly cadence review","3 initial cadences built","Activity capture to SF"] },
+  { key:"SS-182", name:"Sales Engagement", half:"H2", quarter:"Q3", outcome:"GROW REVENUE", tagline:"Cadences as a governed tool - not a free-for-all", stories:3, okrs:["O1"], teams:["Sales","AM"], highlights:["Cadence governance model","SF team creates cadences only","Team leads request via Jira","Quarterly cadence review","3 initial cadences built","Activity capture to SF"] },
   { key:"SS-86", name:"AM Optimisation", half:"H1", quarter:"Q2", outcome:"RETAIN DEALERS", tagline:"Lists deliver the work. You deliver the results.", stories:8, okrs:["O1","O2"], teams:["AM"], highlights:["Action Today account view","6 standard AM list views","Mandatory call logging","Next Contact Date discipline","Callback task model","AM manager dashboard"] },
-  { key:"SS-87", name:"Single Source of Truth", half:"H1", quarter:"Q1-Q2", outcome:"TRUST THE DATA", tagline:"If it's not in Salesforce, it does not exist", stories:10, okrs:["O1","O2","O3"], teams:["All"], highlights:["TAFKAR bidirectional sync","MAT sync","Dealer Centre real-time sync","Marketing Cloud engagement sync","Duplicate management rules","Data cleansing programme","Spreadsheet retirement plan","MAT & TAFKAR feasibility study"] },
-  { key:"SS-88", name:"Platform & Homepages", half:"H2", quarter:"Q3-Q4", outcome:"BUILD THE PLATFORM", tagline:"Log in and immediately know what your day looks like", stories:9, okrs:["O1","O3"], teams:["All"], highlights:["5 bespoke Lightning homepages","CS, Onboarding, TSNB, TSAM, KAM","Console apps per team","Page layout optimisation","Vonage CTI integration","TimeWarped timeline embed"] },
-  { key:"SS-108", name:"KAM & Salesforce Maps", half:"H2", quarter:"Q3", outcome:"GROW REVENUE", tagline:"More time in front of dealers. Less time planning the route.", stories:8, okrs:["O1"], teams:["KAM"], highlights:["Licence & territory design","Address data cleanse","Route optimisation","Visit auto-logging","Coverage gap dashboard","KAM mobile app","KAM homepage"] },
-  { key:"SS-89", name:"Einstein & Agentforce", half:"H2", quarter:"Q3-Q4", outcome:"BUILD THE PLATFORM", tagline:"AI on stable foundations — not on top of chaos", stories:7, okrs:["O1","O2"], teams:["CS","AM"], highlights:["Licence review first","Einstein Case Summaries","Prompt Templates","Next Best Action for churn","Knowledge Base","AI deflection on contact forms","Agentforce CS bot"] },
+  { key:"SS-108", name:"KAM and Salesforce Maps", half:"H2", quarter:"Q3", outcome:"GROW REVENUE", tagline:"More time in front of dealers. Less time planning the route.", stories:8, okrs:["O1"], teams:["KAM"], highlights:["Licence and territory design","Address data cleanse","Route optimisation","Visit auto-logging","Coverage gap dashboard","KAM mobile app","KAM homepage"] },
+  { key:"SS-87", name:"Single Source of Truth", half:"H1", quarter:"Q1-Q2", outcome:"TRUST THE DATA", tagline:"If it is not in Salesforce, it does not exist", stories:10, okrs:["O1","O2","O3"], teams:["All"], highlights:["TAFKAR bidirectional sync","MAT sync","Dealer Centre real-time sync","Marketing Cloud engagement sync","Duplicate management rules","Data cleansing programme","Spreadsheet retirement plan","MAT and TAFKAR feasibility study"] },
+  { key:"SS-88", name:"Platform and Homepages", half:"H2", quarter:"Q3-Q4", outcome:"BUILD THE PLATFORM", tagline:"Log in and immediately know what your day looks like", stories:9, okrs:["O1","O3"], teams:["All"], highlights:["5 bespoke Lightning homepages","CS, Onboarding, TSNB, TSAM, KAM","Console apps per team","Page layout optimisation","Vonage CTI integration","TimeWarped timeline embed"] },
+  { key:"SS-89", name:"Einstein and Agentforce", half:"H2", quarter:"Q3-Q4", outcome:"BUILD THE PLATFORM", tagline:"AI on stable foundations - not on top of chaos", stories:7, okrs:["O1","O2"], teams:["CS","AM"], highlights:["Licence review first","Einstein Case Summaries","Prompt Templates","Next Best Action for churn","Knowledge Base","AI deflection on contact forms","Agentforce CS bot"] },
   { key:"SS-177", name:"Salesforce Voice", half:"H2", quarter:"Q4", outcome:"BUILD THE PLATFORM", tagline:"Every call captured, contextual, and connected", stories:1, okrs:["O1","O2"], teams:["CS","AM","Sales"], highlights:["Call transcription","Sentiment analysis","Whisper coaching","Screen pop on inbound","Supervisor monitoring","Amazon Connect integration","Replaces Vonage CTI"] },
 ];
 
@@ -24,9 +24,21 @@ const OUTCOMES = [
   { id:"BUILD THE PLATFORM", label:"Build the Platform", icon:"⚡", color:"#3b82f6", bg:"rgba(59,130,246,0.1)", border:"rgba(59,130,246,0.3)" },
 ];
 
-const OKR_LABELS = { O1:"O1 · Grow", O2:"O2 · Trust", O3:"O3 · Culture" };
+const OKR_LABELS = { O1:"O1 - Grow", O2:"O2 - Trust", O3:"O3 - Culture" };
 const OKR_COLORS = { O1:"#10b981", O2:"#f59e0b", O3:"#8b5cf6" };
-const OKR_BG    = { O1:"rgba(16,185,129,0.15)", O2:"rgba(245,158,11,0.15)", O3:"rgba(139,92,246,0.15)" };
+const OKR_BG = { O1:"rgba(16,185,129,0.15)", O2:"rgba(245,158,11,0.15)", O3:"rgba(139,92,246,0.15)" };
+
+const inputStyle = {
+  width:"100%",
+  padding:"9px 12px",
+  fontSize:13,
+  borderRadius:8,
+  border:"1px solid rgba(255,255,255,0.12)",
+  background:"rgba(255,255,255,0.06)",
+  color:"#fff",
+  fontFamily:"'DM Sans', -apple-system, sans-serif",
+  outline:"none",
+};
 
 const s = {
   app: { minHeight:"100vh", background:"#01190E", color:"#fff", fontFamily:"'DM Sans', -apple-system, sans-serif" },
@@ -68,7 +80,7 @@ const s = {
   table: { width:"100%", borderCollapse:"separate", borderSpacing:"0 4px" },
   th: { fontSize:10, fontWeight:700, color:"rgba(255,255,255,0.3)", letterSpacing:1, padding:"6px 12px", textAlign:"left" },
   thOkr: { textAlign:"center" },
-  td: { padding:"8px 12px", background:"rgba(255,255,255,0.03)", borderRadius:0 },
+  td: { padding:"8px 12px", background:"rgba(255,255,255,0.03)" },
   tdFirst: { borderRadius:"8px 0 0 8px" },
   tdLast: { borderRadius:"0 8px 8px 0" },
   dot2: { width:30, height:30, borderRadius:7, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"center", fontSize:13 },
@@ -81,8 +93,6 @@ const s = {
   formWrap: { maxWidth:520 },
   formGroup: { marginBottom:18 },
   formLabel: { fontSize:12, fontWeight:600, color:"rgba(255,255,255,0.5)", marginBottom:6, display:"block" },
-  formInput: { width:"100%", padding:"9px 12px", fontSize:13, borderRadius:8, border:"1px solid rgba(255,255,255,0.12)", background:"rgba(255,255,255,0.06)", color:"#fff", fontFamily:"inherit", outline:"none" },
-  formTextarea: { width:"100%", padding:"9px 12px", fontSize:13, borderRadius:8, border:"1px solid rgba(255,255,255,0.12)", background:"rgba(255,255,255,0.06)", color:"#fff", fontFamily:"inherit", resize:"vertical", minHeight:80, outline:"none" },
   submitBtn: { background:"#FF5033", color:"#fff", border:"none", borderRadius:8, padding:"10px 22px", fontSize:13, fontWeight:700, cursor:"pointer" },
   successBox: { background:"rgba(16,185,129,0.1)", border:"1px solid rgba(16,185,129,0.3)", borderRadius:12, padding:"20px 24px" },
   successTitle: { fontSize:15, fontWeight:700, color:"#83F297" },
@@ -112,25 +122,22 @@ export default function App() {
 
   return (
     <div style={s.app}>
-      {/* Header */}
       <div style={s.header}>
         <div style={s.headerTop}>
           <div>
             <div style={s.brandRow}>
               <div style={s.dot}/>
-              <span style={s.eyebrow}>Cazoo · Salesforce Product</span>
+              <span style={s.eyebrow}>Cazoo - Salesforce Product</span>
             </div>
             <h1 style={s.h1}>2027 Roadmap</h1>
-            <p style={s.subtitle}>{EPICS.length} Epics · {totalStories}+ Stories · 4 Strategic Outcomes</p>
+            <p style={s.subtitle}>{EPICS.length} Epics - {totalStories}+ Stories - 4 Strategic Outcomes</p>
           </div>
         </div>
 
-        {/* Mission */}
         <div style={s.mission}>
-          <span style={s.missionAccent}>Our mission</span> — {MISSION}
+          <span style={s.missionAccent}>Our mission</span> - {MISSION}
         </div>
 
-        {/* Tabs */}
         <div style={s.tabRow}>
           {[["roadmap","Roadmap"],["okr","OKR Map"],["sprint","What's Planned"],["idea","Submit an Idea"]].map(([id,label]) => (
             <button key={id} onClick={() => setTab(id)} style={{ ...s.tab, ...(tab===id ? s.tabActive : {}) }}>
@@ -140,15 +147,13 @@ export default function App() {
         </div>
       </div>
 
-      {/* Body */}
       <div style={s.body}>
 
-        {/* ROADMAP */}
         {tab === "roadmap" && (
           <>
             <div style={s.stats}>
               {[
-                ["13","Epics","#FF5033"],
+                [EPICS.length,"Epics","#FF5033"],
                 [totalStories+"+","Stories in backlog","#83F297"],
                 ["4","Strategic outcomes","#f59e0b"],
                 ["2027","Target delivery","#3b82f6"],
@@ -204,12 +209,12 @@ export default function App() {
                             <div style={s.detailLabel}>KEY DELIVERABLES</div>
                             {e.highlights.map((h,i) => (
                               <div key={i} style={s.detailItem}>
-                                <span style={{color:"#FF5033",flexShrink:0}}>→</span>
+                                <span style={{color:"#FF5033",flexShrink:0}}>-</span>
                                 {h}
                               </div>
                             ))}
                             <a href={`https://motors-uk.atlassian.net/browse/${e.key}`} target="_blank" rel="noreferrer" onClick={ev=>ev.stopPropagation()} style={s.jiraBtn}>
-                              Open in Jira ↗
+                              Open in Jira
                             </a>
                           </div>
                         )}
@@ -222,14 +227,13 @@ export default function App() {
           </>
         )}
 
-        {/* OKR MAP */}
         {tab === "okr" && (
           <>
             <div style={{fontSize:13,color:"rgba(255,255,255,0.4)",marginBottom:24,lineHeight:1.7}}>
               How each Epic maps to the three OKRs. Epics that fuel all three are your highest-value investments.
             </div>
             <div style={{display:"flex",gap:20,marginBottom:24,flexWrap:"wrap"}}>
-              {[["O1","#10b981","O1 — Grow our business by being a valued partner to dealers"],["O2","#f59e0b","O2 — Increase dealers' trust in the Cazoo brand"],["O3","#8b5cf6","O3 — Build Cazoo's fearless and dynamic culture"]].map(([o,c,l]) => (
+              {[["O1","#10b981","O1 - Grow our business by being a valued partner to dealers"],["O2","#f59e0b","O2 - Increase dealers trust in the Cazoo brand"],["O3","#8b5cf6","O3 - Build Cazoos fearless and dynamic culture"]].map(([o,c,l]) => (
                 <div key={o} style={{display:"flex",alignItems:"center",gap:8}}>
                   <div style={{width:10,height:10,borderRadius:3,background:c,flexShrink:0}}/>
                   <span style={{fontSize:11,color:"rgba(255,255,255,0.45)"}}>{l}</span>
@@ -251,12 +255,12 @@ export default function App() {
                     <tr key={e.key}>
                       <td style={{...s.td,...s.tdFirst}}>
                         <div style={{fontSize:13,fontWeight:700,color:"#fff"}}>{e.name}</div>
-                        <div style={{fontSize:10,color:"rgba(255,255,255,0.3)",fontFamily:"monospace"}}>{e.key} · {e.quarter}</div>
+                        <div style={{fontSize:10,color:"rgba(255,255,255,0.3)",fontFamily:"monospace"}}>{e.key} - {e.quarter}</div>
                       </td>
                       {["O1","O2","O3"].map(o => (
                         <td key={o} style={{...s.td,textAlign:"center"}}>
                           <div style={{...s.dot2,background:e.okrs.includes(o)?OKR_BG[o]:"rgba(255,255,255,0.03)",color:e.okrs.includes(o)?OKR_COLORS[o]:"rgba(255,255,255,0.15)",fontSize:e.okrs.includes(o)?14:10}}>
-                            {e.okrs.includes(o)?"●":"·"}
+                            {e.okrs.includes(o)?"●":"-"}
                           </div>
                         </td>
                       ))}
@@ -279,14 +283,13 @@ export default function App() {
           </>
         )}
 
-        {/* SPRINT */}
         {tab === "sprint" && (
           <>
             <p style={{fontSize:13,color:"rgba(255,255,255,0.4)",marginBottom:24,lineHeight:1.7}}>
               All stories are currently in backlog. As sprints begin in 2027 this board will show live progress. Below is the H1 / H2 delivery plan.
             </p>
             <div style={s.sprintBoard}>
-              {[["H1 — Jan to Jun","H1"],["H2 — Jul to Dec","H2"],["Done","done"]].map(([title,half]) => {
+              {[["H1 - Jan to Jun","H1"],["H2 - Jul to Dec","H2"],["Done","done"]].map(([title,half]) => {
                 const epics = half==="done" ? [] : EPICS.filter(e=>e.half===half);
                 return (
                   <div key={half} style={s.sprintCol}>
@@ -299,26 +302,23 @@ export default function App() {
                     ) : epics.map(e => (
                       <div key={e.key} style={s.sprintCard}>
                         <div style={s.sprintCardName}>{e.name}</div>
-                        <div style={s.sprintCardMeta}>{e.key} · {e.stories} stories · {e.quarter}</div>
+                        <div style={s.sprintCardMeta}>{e.key} - {e.stories} stories - {e.quarter}</div>
                       </div>
                     ))}
                   </div>
                 );
               })}
             </div>
-
-            {/* Timeline bar */}
             <div style={{marginTop:32,background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.07)",borderRadius:12,padding:"20px 24px"}}>
               <div style={{fontSize:11,fontWeight:700,letterSpacing:2,color:"rgba(255,255,255,0.3)",marginBottom:16,textTransform:"uppercase"}}>2027 Delivery Timeline</div>
               <div style={{display:"flex",gap:4,height:40,borderRadius:8,overflow:"hidden"}}>
-                <div style={{flex:5,background:"rgba(255,80,51,0.15)",border:"1px solid rgba(255,80,51,0.25)",borderRadius:"8px 0 0 8px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:"#FF5033"}}>H1 · {EPICS.filter(e=>e.half==="H1").length} Epics</div>
-                <div style={{flex:5,background:"rgba(131,242,151,0.08)",border:"1px solid rgba(131,242,151,0.15)",borderRadius:"0 8px 8px 0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:"#83F297"}}>H2 · {EPICS.filter(e=>e.half==="H2").length} Epics</div>
+                <div style={{flex:5,background:"rgba(255,80,51,0.15)",border:"1px solid rgba(255,80,51,0.25)",borderRadius:"8px 0 0 8px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:"#FF5033"}}>H1 - {EPICS.filter(e=>e.half==="H1").length} Epics</div>
+                <div style={{flex:5,background:"rgba(131,242,151,0.08)",border:"1px solid rgba(131,242,151,0.15)",borderRadius:"0 8px 8px 0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:"#83F297"}}>H2 - {EPICS.filter(e=>e.half==="H2").length} Epics</div>
               </div>
             </div>
           </>
         )}
 
-        {/* IDEA FORM */}
         {tab === "idea" && (
           <>
             <p style={{fontSize:13,color:"rgba(255,255,255,0.45)",marginBottom:24,lineHeight:1.7,maxWidth:520}}>
@@ -326,45 +326,48 @@ export default function App() {
             </p>
             {!submitted ? (
               <div style={s.formWrap}>
-                {[
-                  ["Your name","text","name","e.g. Sarah Johnson"],
-                  ["Your team","select","team",""],
-                  ["What's the idea?","text","title","One clear sentence"],
-                  ["What problem does it solve?","textarea","problem","Describe the current pain. What are you doing today that this would fix?"],
-                  ["Which team would benefit?","text","beneficiary","e.g. All AMs, CS agents, TSNB reps..."],
-                  ["Priority (your view)","priority","priority",""],
-                ].map(([label,type,field,placeholder]) => (
-                  <div key={field} style={s.formGroup}>
-                    <label style={s.formLabel}>{label}</label>
-                    {type==="textarea" ? (
-                      <textarea style={s.formTextarea} placeholder={placeholder} value={ideaState[field]} onChange={e=>setIdeaState(p=>({...p,[field]:e.target.value}))}/>
-                    ) : type==="select" ? (
-                      <select style={s.formInput} value={ideaState[field]} onChange={e=>setIdeaState(p=>({...p,[field]:e.target.value}))}>
-                        <option value="">Select your team</option>
-                        {["CS","Onboarding","TSAM","TSNB","KAM","Finance","Product","Tech","Other"].map(t=><option key={t}>{t}</option>)}
-                      </select>
-                    ) : type==="priority" ? (
-                      <select style={s.formInput} value={ideaState[field]} onChange={e=>setIdeaState(p=>({...p,[field]:e.target.value}))}>
-                        <option value="">How urgent is this?</option>
-                        <option>🔴 Blocking — we can't work without it</option>
-                        <option>🟡 High — daily frustration</option>
-                        <option>🟢 Nice to have — would help but not critical</option>
-                      </select>
-                    ) : (
-                      <input style={s.formInput} type="text" placeholder={placeholder} value={ideaState[field]} onChange={e=>setIdeaState(p=>({...p,[field]:e.target.value}))}/>
-                    )}
-                  </div>
-                ))}
-                <button style={{...s.submitBtn,opacity:submitting?0.6:1}} disabled={submitting} onClick={handleSubmit}>
-                  {submitting ? "Submitting..." : "Submit idea →"}
+                <div style={s.formGroup}>
+                  <label style={s.formLabel}>Your name</label>
+                  <input style={inputStyle} type="text" placeholder="e.g. Sarah Johnson" value={ideaState.name} onChange={e=>setIdeaState(p=>({...p,name:e.target.value}))}/>
+                </div>
+                <div style={s.formGroup}>
+                  <label style={s.formLabel}>Your team</label>
+                  <select style={inputStyle} value={ideaState.team} onChange={e=>setIdeaState(p=>({...p,team:e.target.value}))}>
+                    <option value="">Select your team</option>
+                    {["CS","Onboarding","TSAM","TSNB","KAM","Finance","Product","Tech","Other"].map(t=><option key={t} value={t}>{t}</option>)}
+                  </select>
+                </div>
+                <div style={s.formGroup}>
+                  <label style={s.formLabel}>What is the idea?</label>
+                  <input style={inputStyle} type="text" placeholder="One clear sentence" value={ideaState.title} onChange={e=>setIdeaState(p=>({...p,title:e.target.value}))}/>
+                </div>
+                <div style={s.formGroup}>
+                  <label style={s.formLabel}>What problem does it solve?</label>
+                  <textarea style={{...inputStyle, resize:"vertical", minHeight:80}} placeholder="Describe the current pain. What are you doing today that this would fix?" value={ideaState.problem} onChange={e=>setIdeaState(p=>({...p,problem:e.target.value}))}/>
+                </div>
+                <div style={s.formGroup}>
+                  <label style={s.formLabel}>Which team would benefit?</label>
+                  <input style={inputStyle} type="text" placeholder="e.g. All AMs, CS agents, TSNB reps..." value={ideaState.beneficiary} onChange={e=>setIdeaState(p=>({...p,beneficiary:e.target.value}))}/>
+                </div>
+                <div style={s.formGroup}>
+                  <label style={s.formLabel}>Priority (your view)</label>
+                  <select style={inputStyle} value={ideaState.priority} onChange={e=>setIdeaState(p=>({...p,priority:e.target.value}))}>
+                    <option value="">How urgent is this?</option>
+                    <option value="blocking">Blocking - we cannot work without it</option>
+                    <option value="high">High - daily frustration</option>
+                    <option value="nice">Nice to have - would help but not critical</option>
+                  </select>
+                </div>
+                <button style={{...s.submitBtn, opacity:submitting?0.6:1}} disabled={submitting} onClick={handleSubmit}>
+                  {submitting ? "Submitting..." : "Submit idea"}
                 </button>
               </div>
             ) : (
               <div style={s.successBox}>
-                <div style={s.successTitle}>✓ Idea submitted</div>
+                <div style={s.successTitle}>Idea submitted</div>
                 <div style={s.successSub}>
-                  Thanks {ideaState.name}. Your idea "{ideaState.title}" has been logged for the SF team to review.<br/>
-                  Good ideas get into the next planning cycle. We'll be in touch.
+                  Thanks {ideaState.name}. Your idea has been logged for the SF team to review.
+                  Good ideas get into the next planning cycle. We will be in touch.
                 </div>
               </div>
             )}
