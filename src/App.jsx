@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const MISSION = "Our mission is simple - make the business fall in love with Salesforce. Not as a system they log into, but as the enabler that surfaces the right work, removes the admin, and lets every team focus on what actually matters.";
+const MISSION = "A key objective is to make the business fall in love with Salesforce. Not as a system they log into, but as the enabler that surfaces the right work, removes the admin, and lets every team focus on what actually matters.";
 
 const EPICS = [
   { key:"SS-28", name:"Service Desk", half:"H1", quarter:"Q1-Q2", outcome:"RETAIN DEALERS", tagline:"Everything Zendesk promises, built natively in Salesforce", stories:20, okrs:["O1","O2"], teams:["CS"], highlights:["Refined 6-stage case model","SLAs with business hours","Pending and On-Hold automation","Child case model","CSAT surveys","Contact forms","Slack alerts","Email template library"] },
