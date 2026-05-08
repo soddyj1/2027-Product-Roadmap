@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const MISSION = "A key objective is to make the business fall in love with Salesforce. Not as a system they log into, but as the enabler that surfaces the right work, removes the admin, and lets every team focus on what actually matters.";
+const MISSION = "Our mission is simple - make the business fall in love with Salesforce. Not as a system they log into, but as the enabler that surfaces the right work, removes the admin, and lets every team focus on what actually matters.";
 
 const EPICS = [
   { key:"SS-28", name:"Service Desk", half:"H1", quarter:"Q1-Q2", outcome:"RETAIN DEALERS", tagline:"Everything Zendesk promises, built natively in Salesforce", stories:20, okrs:["O1","O2"], teams:["CS"], highlights:["Refined 6-stage case model","SLAs with business hours","Pending and On-Hold automation","Child case model","CSAT surveys","Contact forms","Slack alerts","Email template library"] },
@@ -37,6 +37,19 @@ const inputStyle = {
   color:"#fff",
   fontFamily:"'DM Sans', -apple-system, sans-serif",
   outline:"none",
+};
+
+const selectStyle = {
+  width:"100%",
+  padding:"9px 12px",
+  fontSize:13,
+  borderRadius:8,
+  border:"1px solid rgba(255,255,255,0.12)",
+  background:"#0d2818",
+  color:"#fff",
+  fontFamily:"'DM Sans', -apple-system, sans-serif",
+  outline:"none",
+  cursor:"pointer",
 };
 
 const s = {
@@ -331,7 +344,7 @@ export default function App() {
                 </div>
                 <div style={s.formGroup}>
                   <label style={s.formLabel}>Your team</label>
-                  <select style={inputStyle} value={ideaState.team} onChange={e=>setIdeaState(p=>({...p,team:e.target.value}))}>
+                  <select style={selectStyle} value={ideaState.team} onChange={e=>setIdeaState(p=>({...p,team:e.target.value}))}>
                     <option value="">Select your team</option>
                     {["CS","Onboarding","TSAM","TSNB","KAM","Finance","Product","Tech","Other"].map(t=><option key={t} value={t}>{t}</option>)}
                   </select>
@@ -350,7 +363,7 @@ export default function App() {
                 </div>
                 <div style={s.formGroup}>
                   <label style={s.formLabel}>Priority (your view)</label>
-                  <select style={inputStyle} value={ideaState.priority} onChange={e=>setIdeaState(p=>({...p,priority:e.target.value}))}>
+                  <select style={selectStyle} value={ideaState.priority} onChange={e=>setIdeaState(p=>({...p,priority:e.target.value}))}>
                     <option value="">How urgent is this?</option>
                     <option value="blocking">Blocking - we cannot work without it</option>
                     <option value="high">High - daily frustration</option>
